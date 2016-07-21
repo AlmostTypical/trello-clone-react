@@ -5,13 +5,14 @@ var ListAdder = require('./ListAdder');
 const ListAdderInput = React.createClass({
   getInitialState: function () {
     return {
-      input: ''
+      input: '',
+      name: ''
     }
   },
   render: function () {
     return (
       <div>
-        <input type="text" placeholder="Type name here..."/>
+        <input type="text" placeholder="Type name here..." onChange={this.handleInputChange}/>
         <button onClick={this.handleSaveList}>Save</button>
         <button onClick={this.props.toggleDisplay}>X</button>
       </div>

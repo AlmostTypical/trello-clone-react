@@ -10,7 +10,7 @@ const List = React.createClass({
       <div className="tile is-parent">
         <div className="tile is-child is-pulled-left">
           <div className="box">
-            <h3>List Name 1</h3>
+            {this.props.name}
             <Card />
             <button className="button is-success">Add a card...</button>
           </div>
