@@ -17,9 +17,11 @@ const CardAdderInput = React.createClass({
     )
   },
   handleInputChange: function (e) {
-    this.setState({input: e.target.value})
+    this.setState({input: e.target.value});
+    console.log(e.target.value);
   },
   handleSaveCard: function () {
+    console.log(this.state.input);
     this.props.saveCard({text: this.state.input});
     this.setState({input: ''});
   }

@@ -3,6 +3,7 @@ var List = require('./List');
 
 const Card = React.createClass({
   render: function () {
+    console.log(this.props.text);
     return (
       <div className="box">
         <div>{this.props.text}</div>

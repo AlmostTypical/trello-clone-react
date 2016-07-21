@@ -21,7 +21,7 @@ const List = React.createClass({
   render: function () {
     var cardNodes = this.state.cards.map(function(card, i) {
       return (
-        <Card key={i} name={card.text}/>
+        <Card key={i} text={card.text}/>
       )
     });
     return (
