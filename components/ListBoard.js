@@ -6,12 +6,11 @@ var ListAdder = require('./ListAdder');
 const ListBoard = React.createClass({
   getInitialState: function () {
     return {
-      lists: []
+      lists: [],
     };
   },
   render: function () {
     var listNodes = this.state.lists.map(function(list, i) {
-      console.log(list);
       return (
         <List key={i} name={list.name}/>
       )
