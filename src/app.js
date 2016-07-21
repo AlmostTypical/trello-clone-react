@@ -10,10 +10,10 @@ const Card = require('../components/Card');
 const App = React.createClass({
   render: function () {
     return (
-      <div>
+      <div className="modal-background">
         <NavBar />
         <Menu />
-        <ListBoard />
+        <ListBoard list={this.props.list} />
       </div>
     );
   }
