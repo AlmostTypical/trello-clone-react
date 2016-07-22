@@ -11,7 +11,7 @@ const CardAdderInput = React.createClass({
   render: function () {
     return (
       <div>
-        <input className="textarea" type="text" placeholder="Type text here..." onChange={this.handleInputChange}/>
+        <input className="textarea" value={this.state.input} type="text" placeholder="Type text here..." onChange={this.handleInputChange}/>
         <button className="button is-success" onClick={this.handleSaveCard}>Save</button>
         <button className="button is-danger" onClick={this.props.toggleDisplay}>X</button>
       </div>

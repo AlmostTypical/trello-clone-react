@@ -14,7 +14,7 @@ const ListAdderInput = React.createClass({
       <div className="control">
         <div className="box">
           <p className="control">
-            <input className="name" type="text" placeholder="Type list name here..." onChange={this.handleInputChange}/>
+            <input className="name" value={this.state.input} type="text" placeholder="Type list name here..." onChange={this.handleInputChange}/>
           </p>
           <button className="button is-success" onClick={this.handleSaveList}>Save</button>
           <button className="button is-danger" onClick={this.props.toggleDisplay}>X</button>
@@ -28,6 +28,7 @@ const ListAdderInput = React.createClass({
   handleSaveList: function () {
     this.props.saveList({name: this.state.input, listId: new Date().getTime()});
     this.setState({input: ''});
+    console.log(this.state);
   }
 });
 
