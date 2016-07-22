@@ -3,9 +3,7 @@ var React = require('react');
 const CardAdderInput = React.createClass({
   getInitialState: function () {
     return {
-      input: '',
-      text: '',
-      id: 0
+      input: ''
     }
   },
   render: function () {
@@ -21,7 +19,11 @@ const CardAdderInput = React.createClass({
     this.setState({input: e.target.value});
   },
   handleSaveCard: function () {
-    this.props.saveCard({text: this.state.input, cardId: new Date().getTime()});
+    this.props.saveCard({
+      text: this.state.input,
+      cardId: new Date().getTime(),
+      listId: this.props.listId
+    });
     this.setState({input: ''});
   }
 });

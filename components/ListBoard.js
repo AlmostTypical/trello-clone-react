@@ -8,23 +8,32 @@ const ListBoard = React.createClass({
   getInitialState: function () {
     return {
       lists: [],
+      cards: []
     };
   },
   render: function () {
     var deleteList = this.deleteList;
     var listNodes = this.state.lists.map(function(list, i) {
+      var filteredCards = this.state.cards.filter(function(card){
+        return card.listId === list.listId;
+      }.bind(this));
       return (
-        <List deleteList={deleteList} listId={list.listId} key={i} name={list.name}/>
+        <List deleteList={deleteList}
+              listId={list.listId}
+              key={i}
+              name={list.name}
+              cards={filteredCards}
+              saveCard={this.saveCard}
+              deleteCard={this.deleteCard}/>
       )
-    });
+    }.bind(this));
     return (
       <div className="level">
         <div className="tile is-ancestor">
-          <div className="tile is-4 is-flex">{listNodes}
-          <ListAdder
-            saveList={this.saveList}
-          />
-            </div>
+          <div className="tile is-flex">
+            {listNodes}
+            <ListAdder saveList={this.saveList}/>
+          </div>
         </div>
       </div>
     )
@@ -40,10 +49,25 @@ const ListBoard = React.createClass({
       this.setState({
         lists: _.reject(this.state.lists, function (list) {
           return list.listId === listId
+
+        }),
+        cards: _.reject(this.state.cards, function (cards){
+          return cards.listId === listId
         })
       })
     }
-  }
+  },
+  saveCard: function (card) {
+    this.setState({
+      cards: this.state.cards.concat([card])
+    })
+  },
+  deleteCard: function (cardId) {
+    this.setState({
+      cards: _.reject(this.state.cards, function (card) {
+        return card.cardId === cardId})
+    });
+  },
 });
 
 module.exports = ListBoard;

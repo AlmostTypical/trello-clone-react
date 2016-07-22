@@ -1,44 +1,24 @@
 var React = require('react');
-var ListBoard = require('./ListBoard');
 var Card = require('./Card');
-var CardAdderPlaceholder = require('./CardAdderPlaceholder');
-var CardAdderInput = require('./CardAdderInput');
 var CardAdder = require('./CardAdder');
-var _ = require('underscore');
 
 
 
 const List = React.createClass({
-  getInitialState: function () {
-    return {
-      cards: []
-    }
-  },
-  saveCard: function (card) {
-    this.setState({
-      cards: this.state.cards.concat([card])
-    })
-  },
-  deleteCard: function (cardId) {
-    this.setState({
-      cards: _.reject(this.state.cards, function (card) {
-        return card.cardId === cardId})
-    });
-  },
   remove: function() {
     this.props.deleteList(this.props.listId);
   },
   render: function () {
-    var deleteCard = this.deleteCard;
-    var cardNodes = this.state.cards.map(function(card, i) {
+    var cardNodes = this.props.cards.map(function(card, i) {
       return (
-        <Card deleteCard={deleteCard} cardId={card.cardId} key={i} text={card.text}/>
+        <Card deleteCard={this.props.deleteCard}
+              cardId={card.cardId}
+              listId={this.props.listId}
+              key={i}
+              text={card.text}/>
       )
-    });
+    }.bind(this));
     return (
-      <div className="tile is-ancestor">
-        <div className="tile is-parent">
-          <div className="tile is-4 is-flex">
             <div className="box">
               <button className="button is-danger is-outlined"
                       onClick={this.remove}>
@@ -50,11 +30,9 @@ const List = React.createClass({
               <div>{this.props.name}</div>
               <div>{cardNodes}</div>
               <CardAdder
-                saveCard={this.saveCard}/>
+                listId={this.props.listId}
+                saveCard={this.props.saveCard}/>
             </div>
-          </div>
-        </div>
-      </div>
     )
   }
 });

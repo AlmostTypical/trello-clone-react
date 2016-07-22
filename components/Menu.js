@@ -9,7 +9,8 @@ const Menu = React.createClass({
   render: function () {
     return (
       <div className="box">
-        <select name="colors"
+        <select className="select"
+                name="colors"
                 onChange = {this.changeColor}>
           <option> Choose a colour</option>
           <option value="#373737">Black</option>
