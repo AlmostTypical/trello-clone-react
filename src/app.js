@@ -8,16 +8,28 @@ const Card = require('../components/Card');
 
 
 const App = React.createClass({
+  getInitialState: function () {
+    return {
+      bgColor: '#373737'
+    }
+  },
   render: function () {
+    var style = {
+      backgroundColor: this.state.bgColor
+    };
     return (
-      <div className="modal-background">
+      <div style={style} className="modal-background">
         <div className="container is-fluid">
           <NavBar />
-          <Menu />
-          <ListBoard list={this.props.list} />
+          <Menu changeColor={this.changeColor}/>
+          <ListBoard list={this.props.list}/>
         </div>
       </div>
     );
+  },
+  changeColor: function (hex) {
+    console.log(hex);
+    this.setState({bgColor: hex})
   }
 });
 
