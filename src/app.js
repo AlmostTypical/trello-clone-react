@@ -28,7 +28,6 @@ const App = React.createClass({
     );
   },
   changeColor: function (hex) {
-    console.log(hex);
     this.setState({bgColor: hex})
   }
 });

@@ -16,6 +16,8 @@ const Menu = React.createClass({
           <option value="#c1002e">Red</option>
           <option value="#0a975d">Marine Green</option>
           <option value="#F7B52D">Golden Yellow</option>
+          <option value="#CD853F">Peru</option>
+          <option value="#CC8899">Puce</option>
         </select>
       </div>
     )
