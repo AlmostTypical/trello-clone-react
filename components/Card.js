@@ -3,7 +3,6 @@ var List = require('./List');
 
 const Card = React.createClass({
   remove: function(){
-    console.log(this.props);
     this.props.deleteCard(this.props.cardId);
   },
   render: function () {

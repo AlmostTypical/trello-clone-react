@@ -23,8 +23,11 @@ const List = React.createClass({
     this.setState({
       cards: _.reject(this.state.cards, function (card) {
         return card.cardId === cardId})
-
     })
+    console.log(this.cards)
+  },
+  remove: function() {
+    this.props.deleteList(this.props.listId);
   },
   render: function () {
     var deleteCard = this.deleteCard;
@@ -38,6 +41,7 @@ const List = React.createClass({
         <div className="tile is-parent">
           <div className="tile is-4 is-flex">
             <div className="box">
+              <button onClick={this.remove}>X</button>
               <div>{this.props.name}</div>
               <div>{cardNodes}</div>
               <CardAdder

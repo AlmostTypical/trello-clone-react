@@ -6,8 +6,7 @@ const ListAdderInput = React.createClass({
   getInitialState: function () {
     return {
       input: '',
-      name: '',
-      id: 0
+      name: ''
     }
   },
   render: function () {
@@ -27,7 +26,7 @@ const ListAdderInput = React.createClass({
     this.setState({input: e.target.value})
   },
   handleSaveList: function () {
-    this.props.saveList({name: this.state.input});
+    this.props.saveList({name: this.state.input, listId: new Date().getTime()});
     this.setState({input: ''});
   }
 });

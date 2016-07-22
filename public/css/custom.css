@@ -1,0 +1,13 @@
+.level {
+    overflow: scroll;
+    height: 80vh;
+    overflow-y: hidden;
+    vertical-align: top;
+    align-items: flex-start;
+}
+
+.box {
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
