@@ -12,13 +12,16 @@ const ListBoard = React.createClass({
   render: function () {
     var listNodes = this.state.lists.map(function(list, i) {
       return (
-        <List key={i} name={list.name}/>
+        <List key={new Date().getDate()} name={list.name}/>
       )
     });
     return (
-      <div className="box">
-        <div>{listNodes}</div>
-        <ListAdder saveList={this.saveList} />
+      <div className="level">
+        <div className="tile is-ancestor">
+          <div className="tile is-4 is-flex">{listNodes}
+          <ListAdder saveList={this.saveList} />
+            </div>
+        </div>
       </div>
     )
   },

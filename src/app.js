@@ -11,9 +11,11 @@ const App = React.createClass({
   render: function () {
     return (
       <div className="modal-background">
-        <NavBar />
-        <Menu />
-        <ListBoard list={this.props.list} />
+        <div className="container is-fluid">
+          <NavBar />
+          <Menu />
+          <ListBoard list={this.props.list} />
+        </div>
       </div>
     );
   }
